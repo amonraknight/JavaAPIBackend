@@ -1,0 +1,13 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: api-supporter-service
+  servlet:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+
+storage:
+  location: C:\Users\amonr\Downloads
