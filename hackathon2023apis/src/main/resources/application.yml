@@ -9,5 +9,22 @@ spring:
       max-file-size: 128KB
       max-request-size: 128KB
 
-storage:
-  location: C:\Users\amonr\Downloads
+nifi:
+  baseurl: http://localhost:8443/nifi-api
+  parent-group-id: 9b62297a-018a-1000-333c-9836124d17c4
+
+
+log4j:
+  rootLogger: DEBUG, stdout
+
+
+expressions:
+  explist:
+    - idx: 1
+      regex: Please create a processor group in name "(.+)"\.
+      task: createProcessorGroup
+      number: 1
+    - idx: 2
+      regex: Please create a processor group in name "(.+)"\.
+      task: deleteProcessorGroup
+      number: 1
