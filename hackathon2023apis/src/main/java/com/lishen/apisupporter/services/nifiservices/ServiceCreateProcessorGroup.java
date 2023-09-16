@@ -14,6 +14,7 @@ import java.util.List;
 public class ServiceCreateProcessorGroup implements NifiService {
 
     private String groupName;
+    private String parentGroupId;
 
     public String getParentGroupId() {
         return parentGroupId;
@@ -22,8 +23,6 @@ public class ServiceCreateProcessorGroup implements NifiService {
     public void setParentGroupId(String parentGroupId) {
         this.parentGroupId = parentGroupId;
     }
-
-    private String parentGroupId;
 
     @Override
     public void setParameters(List<String> parameterList) {

@@ -18,6 +18,7 @@ public class ServiceFactory {
                 break;
             case "deleteProcessorGroup":
                 tgtService = new ServiceDeleteProcessorGroup();
+                ((ServiceDeleteProcessorGroup) tgtService).setParentGroupId(parentGroupId);
                 break;
             default:
                 break;

@@ -25,6 +25,6 @@ expressions:
       task: createProcessorGroup
       number: 1
     - idx: 2
-      regex: Please create a processor group in name "(.+)"\.
+      regex: Please remove the processor group in name "(.+)"\.
       task: deleteProcessorGroup
       number: 1

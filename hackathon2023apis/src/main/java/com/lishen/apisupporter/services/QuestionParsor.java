@@ -24,8 +24,14 @@ public class QuestionParsor {
 
     public String parseQuestionNdAct(String question) throws ApiException {
         NifiService expectedService = getExpectedService(question);
-
-        NifiResponse response = expectedService.commit();
+        NifiResponse response = null;
+        if(expectedService==null) {
+            String replyMessage = "Sorry, can't find a service for your.";
+            response = new NifiResponse(replyMessage, null);
+        }
+        else {
+            response = expectedService.commit();
+        }
 
         return response.getReplyMessage();
     }
@@ -49,8 +55,9 @@ public class QuestionParsor {
         }
 
         NifiService service= serviceFactory.createNifiService(expectedService);
-
-        service.setParameters(parameters);
+        if(service!=null) {
+            service.setParameters(parameters);
+        }
 
         return service;
     }
