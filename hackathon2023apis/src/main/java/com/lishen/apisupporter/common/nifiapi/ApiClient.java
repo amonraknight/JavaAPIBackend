@@ -13,7 +13,7 @@
 
 package com.lishen.apisupporter.common.nifiapi;
 
-import com.lishen.apisupporter.common.nifiutil.OkHttpUtil;
+import com.lishen.apisupporter.common.util.OkHttpUtil;
 import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;

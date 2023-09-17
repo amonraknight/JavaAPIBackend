@@ -1,4 +1,4 @@
-package com.lishen.apisupporter.common.nifiutil;
+package com.lishen.apisupporter.common.util;
 
 import com.squareup.okhttp.OkHttpClient;
 

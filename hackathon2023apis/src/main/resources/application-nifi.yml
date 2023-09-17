@@ -1,0 +1,6 @@
+
+nifi:
+  baseurl: http://localhost:8443/nifi-api
+  parent-group-id: 9b62297a-018a-1000-333c-9836124d17c4
+
+

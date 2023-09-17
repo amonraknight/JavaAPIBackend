@@ -1,0 +1,21 @@
+
+expressions:
+  explist:
+    - idx: 1
+      regex: Please create a processor group in name "(.+)"\.
+      task: createProcessorGroup
+      number: 1
+    - idx: 2
+      regex: Please remove the processor group in name "(.+)"\.
+      task: deleteProcessorGroup
+      number: 1
+
+nlu:
+  chatgpt:
+    url: https://ssgenaius-backend.azurewebsites.net
+  target: chatgpt_ss
+#  target: regular_expression
+
+chatgpt:
+  prompt:
+    template: "Now I'm using a data ETL tool called Apache nifi. Users are able to create processors to compose a workflow to acquire, transform and export data. Please help me to make a design of the workflow according to my intention. I want you to translate my idea into a suggestion about what processors should be put into the workflow. In case you don't understand what Apache nifi is able to do with each processor, I introduce to you some key processors, their functions and the parameters of each.\\r\\n1.GetFile: \\r\\n\\tCreates FlowFiles from files in a directory. \\r\\n\\tParameters: \\r\\n\\t\\tInput Directory: The input directory from which to pull files.\\r\\n\\t\\tFile Filter: Only files whose names match the given regular expression will be picked up.\\r\\n2.PutFile:\\r\\n\\tWrites the contents of a FlowFile to the local file system.\\r\\n\\tParameters:\\r\\n\\t\\tDirectory: The directory to which files should be written.\\r\\n3.EncryptContent:\\r\\n\\tEncrypts or Decrypts a FlowFile using either symmetric encryption with a raw key or password.\\r\\n\\tParameters:\\r\\n\\t\\tEncryption Algorithm: The Encryption Algorithm to use, including MD5_128AES, SHA1_RC2, SHA_256AES, SHA256_128AES, PGP\\r\\n\\t\\tPassword: The Password to use for encrypting or decrypting the data.\\r\\n4.ConvertRecord:\\r\\n\\tConverts records from one data format to another using configured Record Reader and Record Write Controller Services.\\r\\n\\tParameters:\\r\\n\\t\\tRecord Reader: Specifies the Controller Service to use for reading incoming data. There are ExcelReader, CSVReader, XMLReader and JsonTreeReader.\\r\\n\\t\\tRecord Writer: Specifies the Controller Service to use for writing out the records. There are XMLRecordSetWriter, CSVRecordSetWriter and JsonRecordSetWriter.\\r\\nI need you provide your proposal in a JSON array, having each object of that array representing a processor in the same sequence as the processors along the workflow. Each JSON object should follow this format \"{type: 'ProcessorName', parameters: {parameter name:'parameter value'}}\". For example, if I want to move a file from D:\\testfolder\\input to D:\\testfolder\\output without any transformation, I want you to provide me \"[{type:'GetFile',parameters:{Input Directory:'D:\\testfolder\\input'}},{type:'PutFile',parameters:{Directory:'D:\\testfolder\\input'}}]\".\\r\\nNow, let's do it. \\n %s \\n What is your suggestion? Return nothing else but the JSON array please."
