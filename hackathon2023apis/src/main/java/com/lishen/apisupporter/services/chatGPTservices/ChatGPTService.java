@@ -23,6 +23,12 @@ public class ChatGPTService {
     @Value("${chatgpt.prompt.template}")
     String promptTemplate;
 
+    @Value("${nlu.chatgpt.skip}")
+    boolean skip;
+
+    @Value("${nlu.chatgpt.dummy}")
+    String dummyReturn;
+
     @Autowired
     ChatGPTClient chatGPTClient;
 
@@ -48,6 +54,10 @@ public class ChatGPTService {
     }
 
     public String AskGPTFlowDesign(String userInput) {
+
+        if (skip) {
+            return dummyReturn;
+        }
         // Fill prompt:
         String prompt = String.format(promptTemplate, userInput);
 

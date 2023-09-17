@@ -8,6 +8,7 @@ import com.lishen.apisupporter.common.entities.NifiResponse;
 import com.lishen.apisupporter.common.nifiapi.ApiException;
 import com.lishen.apisupporter.common.nifiapi.model.ProcessorEntity;
 import com.lishen.apisupporter.services.chatGPTservices.ChatGPTService;
+import com.lishen.apisupporter.services.nifiservices.ServiceCreateConnection;
 import com.lishen.apisupporter.services.nifiservices.ServiceCreateProcessor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,8 @@ public class GPTFlowPlanner {
 
             createNifiFlow(componentList);
         } catch (Exception e) {
-            log.error("ChatGPT is not returning an expected answer.", e, gptDesign);
+            e.printStackTrace();
+            log.error("ChatGPT is not returning an expected answer.", gptDesign);
         }
 
         return null;
@@ -51,31 +53,44 @@ public class GPTFlowPlanner {
 
     ;
 
-    private String createNifiFlow(List<GPTDesignComponent> componentList) {
+    private String createNifiFlow(List<GPTDesignComponent> componentList) throws ApiException {
 
         List<ProcessorEntity> processorList = new ArrayList<>();
 
         // Create processor one by one.
         for (int i = 0; i < componentList.size(); i++) {
             GPTDesignComponent eachComponent = componentList.get(i);
-            eachComponent = integrateComponent(eachComponent, i + 1);
+            eachComponent = integrateProcessorComponent(eachComponent, i + 1);
             ServiceCreateProcessor serviceCreateProcessor = new ServiceCreateProcessor();
             serviceCreateProcessor.setParentGroupId(this.parentGroupId);
             serviceCreateProcessor.setProcessorType(eachComponent.getType());
             serviceCreateProcessor.setParameters(eachComponent.getParameters());
 
-            try {
-                NifiResponse nifiResponse = serviceCreateProcessor.commit();
-                processorList.add((ProcessorEntity) nifiResponse.getReturnObject());
-            } catch (ApiException e) {
-                throw new RuntimeException(e);
-            }
+            NifiResponse nifiResponse = serviceCreateProcessor.commit();
+            processorList.add((ProcessorEntity) nifiResponse.getReturnObject());
+
+        }
+
+        // Now link them up.
+        for (int i = 0; i < processorList.size() - 1; i++) {
+            String sourceId = processorList.get(i).getComponent().getId();
+            String targetId = processorList.get(i+1).getComponent().getId();
+            List<String> parameterList = new ArrayList<>();
+            parameterList.add(sourceId);
+            parameterList.add(targetId);
+
+            ServiceCreateConnection serviceCreateConnection = new ServiceCreateConnection();
+            serviceCreateConnection.setParentGroupId(this.parentGroupId);
+            serviceCreateConnection.setParameters(parameterList);
+
+            serviceCreateConnection.commit();
+
         }
 
         return "The flow has been created.";
     }
 
-    private GPTDesignComponent integrateComponent(GPTDesignComponent component, int idx) {
+    private GPTDesignComponent integrateProcessorComponent(GPTDesignComponent component, int idx) {
 
         JSONObject parameterJson = component.getParameters();
         parameterJson.put("name", component.getType().concat("_").concat(String.valueOf(idx)));

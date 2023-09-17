@@ -13,6 +13,8 @@ expressions:
 nlu:
   chatgpt:
     url: https://ssgenaius-backend.azurewebsites.net
+    dummy: "[{\"type\": \"GetFile\",\"parameters\": {\"Input Directory\": \"D:\\\\testfolder\\\\input\",\"File Filter\": \".*\\.txt\"}},{\"type\": \"EncryptContent\",\"parameters\": {\"Encryption Algorithm\": \"PGP\",\"Password\": \"your_password_here\"}},{\"type\": \"PutFile\",\"parameters\": {\"Directory\": \"D:\\\\testfolder\\\\output\"}}]"
+    skip: false
   target: chatgpt_ss
 #  target: regular_expression
 
