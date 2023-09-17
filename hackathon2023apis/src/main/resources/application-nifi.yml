@@ -2,5 +2,18 @@
 nifi:
   baseurl: http://localhost:8443/nifi-api
   parent-group-id: 9b62297a-018a-1000-333c-9836124d17c4
+  position:
+    step: 500
+
+component:
+  list:
+    - type: GetFile
+      classfile: org.apache.nifi.processors.standard.GetFile
+    - type: EncryptContent
+      classfile: org.apache.nifi.processors.standard.EncryptContent
+    - type: PutFile
+      classfile: org.apache.nifi.processors.standard.PutFile
+    - type: ConvertRecord
+      classfile: org.apache.nifi.processors.standard.ConvertRecord
 
 

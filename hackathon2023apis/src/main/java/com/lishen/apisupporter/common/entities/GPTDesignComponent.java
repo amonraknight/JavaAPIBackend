@@ -1,6 +1,6 @@
 package com.lishen.apisupporter.common.entities;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import lombok.Data;
 
 @Data

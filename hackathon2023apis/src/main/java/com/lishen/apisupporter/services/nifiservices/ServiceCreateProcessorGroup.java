@@ -1,5 +1,6 @@
 package com.lishen.apisupporter.services.nifiservices;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.lishen.apisupporter.common.entities.NifiResponse;
 import com.lishen.apisupporter.common.nifiapi.ApiException;
 import com.lishen.apisupporter.common.nifiapi.api.ProcessGroupsApi;
@@ -29,6 +30,11 @@ public class ServiceCreateProcessorGroup implements NifiService {
         if (parameterList != null && parameterList.size() == 1) {
             groupName = parameterList.get(0);
         }
+    }
+
+    @Override
+    public void setParameters(JSONObject parameterJson) {
+
     }
 
     @Override

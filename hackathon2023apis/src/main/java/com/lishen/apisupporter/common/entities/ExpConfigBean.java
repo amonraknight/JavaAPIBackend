@@ -11,6 +11,5 @@ import java.util.List;
 @ConfigurationProperties(prefix = "expressions")
 public class ExpConfigBean
 {
-
     private List<Exp> explist;
 }

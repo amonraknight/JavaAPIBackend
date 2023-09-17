@@ -21,7 +21,7 @@ public class NifiClient {
         log.info("NifiAccess initiating.");
         client = new ApiClient();
         client.setDebugging(true);
-        //client.addDefaultHeader("Authorization", getBasicAuthenticationHeader("admin", "adminadminadmin"));
+        // client.addDefaultHeader("Authorization", getBasicAuthenticationHeader("admin", "adminadminadmin"));
         client.setBasePath(baseurl);
         log.info("NifiAccess initiated.");
     }

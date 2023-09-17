@@ -6,20 +6,20 @@ public class NifiResponse {
     }
 
     public NifiResponse(String replyMessage, Object nifiResponse) {
-        this.nifiResponse = nifiResponse;
+        this.returnObject = nifiResponse;
         this.replyMessage = replyMessage;
     }
 
-    private Object nifiResponse;
+    private Object returnObject;
     private String replyMessage;
 
 
-    public Object getNifiResponse() {
-        return nifiResponse;
+    public Object getReturnObject() {
+        return returnObject;
     }
 
-    public void setNifiResponse(Object nifiResponse) {
-        this.nifiResponse = nifiResponse;
+    public void setReturnObject(Object returnObject) {
+        this.returnObject = returnObject;
     }
 
     public String getReplyMessage() {
