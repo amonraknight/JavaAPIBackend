@@ -7,13 +7,704 @@ nifi:
 
 component:
   list:
+    - type: ExtractTNEFAttachments
+      class: org.apache.nifi.processors.email.ExtractTNEFAttachments
+    - type: QueryDatabaseTable
+      class: org.apache.nifi.processors.standard.QueryDatabaseTable
+    - type: FetchAzureBlobStorage
+      class: org.apache.nifi.processors.azure.storage.FetchAzureBlobStorage
+    - type: RunMongoAggregation
+      class: org.apache.nifi.processors.mongodb.RunMongoAggregation
+    - type: ListenHTTP
+      class: org.apache.nifi.processors.standard.ListenHTTP
+    - type: FetchElasticsearchHttp
+      class: org.apache.nifi.processors.elasticsearch.FetchElasticsearchHttp
+    - type: FetchParquet
+      class: org.apache.nifi.processors.parquet.FetchParquet
+    - type: ConsumeAMQP
+      class: org.apache.nifi.amqp.processors.ConsumeAMQP
+    - type: ExecuteGroovyScript
+      class: org.apache.nifi.processors.groovyx.ExecuteGroovyScript
+    - type: ListenFTP
+      class: org.apache.nifi.processors.standard.ListenFTP
+    - type: PutAzureEventHub
+      class: org.apache.nifi.processors.azure.eventhub.PutAzureEventHub
+    - type: GeoEnrichIPRecord
+      class: org.apache.nifi.processors.GeoEnrichIPRecord
+    - type: CreateHadoopSequenceFile
+      class: org.apache.nifi.processors.hadoop.CreateHadoopSequenceFile
+    - type: ExtractCCDAAttributes
+      class: org.apache.nifi.processors.ccda.ExtractCCDAAttributes
+    - type: ConsumeJMS
+      class: org.apache.nifi.jms.processors.ConsumeJMS
+    - type: CaptureChangeMySQL
+      class: org.apache.nifi.cdc.mysql.processors.CaptureChangeMySQL
+    - type: GetGcpVisionAnnotateFilesOperationStatus
+      class: org.apache.nifi.processors.gcp.vision.GetGcpVisionAnnotateFilesOperationStatus
+    - type: ListGCSBucket
+      class: org.apache.nifi.processors.gcp.storage.ListGCSBucket
+    - type: PutCassandraRecord
+      class: org.apache.nifi.processors.cassandra.PutCassandraRecord
+    - type: SplitXml
+      class: org.apache.nifi.processors.standard.SplitXml
+    - type: DeleteByQueryElasticsearch
+      class: org.apache.nifi.processors.elasticsearch.DeleteByQueryElasticsearch
+    - type: HandleHttpRequest
+      class: org.apache.nifi.processors.standard.HandleHttpRequest
+    - type: ScanAttribute
+      class: org.apache.nifi.processors.standard.ScanAttribute
+    - type: ConsumeEWS
+      class: org.apache.nifi.processors.email.ConsumeEWS
+    - type: DetectDuplicate
+      class: org.apache.nifi.processors.standard.DetectDuplicate
+    - type: GetSplunk
+      class: org.apache.nifi.processors.splunk.GetSplunk
+    - type: PutBoxFile
+      class: org.apache.nifi.processors.box.PutBoxFile
+    - type: PutAzureBlobStorage_v12
+      class: org.apache.nifi.processors.azure.storage.PutAzureBlobStorage_v12
+    - type: ReplaceText
+      class: org.apache.nifi.processors.standard.ReplaceText
+    - type: PutElasticsearchJson
+      class: org.apache.nifi.processors.elasticsearch.PutElasticsearchJson
+    - type: GetMongoRecord
+      class: org.apache.nifi.processors.mongodb.GetMongoRecord
+    - type: Base64EncodeContent
+      class: org.apache.nifi.processors.standard.Base64EncodeContent
+    - type: GetAwsTranslateJobStatus
+      class: org.apache.nifi.processors.aws.ml.translate.GetAwsTranslateJobStatus
+    - type: GeoEnrichIP
+      class: org.apache.nifi.processors.GeoEnrichIP
+    - type: GetJMSTopic
+      class: org.apache.nifi.processors.standard.GetJMSTopic
+    - type: QueryElasticsearchHttp
+      class: org.apache.nifi.processors.elasticsearch.QueryElasticsearchHttp
+    - type: TransformXml
+      class: org.apache.nifi.processors.standard.TransformXml
+    - type: DebugFlow
+      class: org.apache.nifi.processors.standard.DebugFlow
+    - type: ScrollElasticsearchHttp
+      class: org.apache.nifi.processors.elasticsearch.ScrollElasticsearchHttp
+    - type: ConsumeWindowsEventLog
+      class: org.apache.nifi.processors.windows.event.log.ConsumeWindowsEventLog
+    - type: GetHTTP
+      class: org.apache.nifi.processors.standard.GetHTTP
+    - type: ScriptedTransformRecord
+      class: org.apache.nifi.processors.script.ScriptedTransformRecord
+    - type: GenerateTableFetch
+      class: org.apache.nifi.processors.standard.GenerateTableFetch
+    - type: ConsumeMQTT
+      class: org.apache.nifi.processors.mqtt.ConsumeMQTT
+    - type: GetSQS
+      class: org.apache.nifi.processors.aws.sqs.GetSQS
+    - type: InvokeHTTP
+      class: org.apache.nifi.processors.standard.InvokeHTTP
+    - type: ListFTP
+      class: org.apache.nifi.processors.standard.ListFTP
+    - type: FetchHBaseRow
+      class: org.apache.nifi.hbase.FetchHBaseRow
+    - type: QueryCassandra
+      class: org.apache.nifi.processors.cassandra.QueryCassandra
+    - type: PublishGCPubSubLite
+      class: org.apache.nifi.processors.gcp.pubsub.lite.PublishGCPubSubLite
+    - type: PutCouchbaseKey
+      class: org.apache.nifi.processors.couchbase.PutCouchbaseKey
+    - type: SearchElasticsearch
+      class: org.apache.nifi.processors.elasticsearch.SearchElasticsearch
+    - type: InvokeScriptedProcessor
+      class: org.apache.nifi.processors.script.InvokeScriptedProcessor
     - type: GetFile
-      classfile: org.apache.nifi.processors.standard.GetFile
+      class: org.apache.nifi.processors.standard.GetFile
+    - type: LookupRecord
+      class: org.apache.nifi.processors.standard.LookupRecord
+    - type: GetAsanaObject
+      class: org.apache.nifi.processors.asana.GetAsanaObject
+    - type: DeleteHBaseCells
+      class: org.apache.nifi.hbase.DeleteHBaseCells
     - type: EncryptContent
-      classfile: org.apache.nifi.processors.standard.EncryptContent
-    - type: PutFile
-      classfile: org.apache.nifi.processors.standard.PutFile
+      class: org.apache.nifi.processors.standard.EncryptContent
+    - type: GenerateFlowFile
+      class: org.apache.nifi.processors.standard.GenerateFlowFile
+    - type: PutAzureCosmosDBRecord
+      class: org.apache.nifi.processors.azure.cosmos.document.PutAzureCosmosDBRecord
+    - type: DeleteDynamoDB
+      class: org.apache.nifi.processors.aws.dynamodb.DeleteDynamoDB
+    - type: ConsumeIMAP
+      class: org.apache.nifi.processors.email.ConsumeIMAP
+    - type: MonitorActivity
+      class: org.apache.nifi.processors.standard.MonitorActivity
+    - type: PutHBaseCell
+      class: org.apache.nifi.hbase.PutHBaseCell
+    - type: PutSplunkHTTP
+      class: org.apache.nifi.processors.splunk.PutSplunkHTTP
+    - type: DuplicateFlowFile
+      class: org.apache.nifi.processors.standard.DuplicateFlowFile
+    - type: ListenTCPRecord
+      class: org.apache.nifi.processors.standard.ListenTCPRecord
+    - type: ConvertCharacterSet
+      class: org.apache.nifi.processors.standard.ConvertCharacterSet
+    - type: ISPEnrichIP
+      class: org.apache.nifi.processors.ISPEnrichIP
+    - type: FetchAzureBlobStorage_v12
+      class: org.apache.nifi.processors.azure.storage.FetchAzureBlobStorage_v12
+    - type: ForkEnrichment
+      class: org.apache.nifi.processors.standard.ForkEnrichment
+    - type: ParseCEF
+      class: org.apache.nifi.processors.standard.ParseCEF
+    - type: TagS3Object
+      class: org.apache.nifi.processors.aws.s3.TagS3Object
+    - type: ExtractEmailHeaders
+      class: org.apache.nifi.processors.email.ExtractEmailHeaders
+    - type: PublishKafkaRecord_1_0
+      class: org.apache.nifi.processors.kafka.pubsub.PublishKafkaRecord_1_0
+    - type: PutDistributedMapCache
+      class: org.apache.nifi.processors.standard.PutDistributedMapCache
+    - type: UpdateByQueryElasticsearch
+      class: org.apache.nifi.processors.elasticsearch.UpdateByQueryElasticsearch
+    - type: QueryWhois
+      class: org.apache.nifi.processors.enrich.QueryWhois
+    - type: DeleteGCSObject
+      class: org.apache.nifi.processors.gcp.storage.DeleteGCSObject
+    - type: PutMongoRecord
+      class: org.apache.nifi.processors.mongodb.PutMongoRecord
+    - type: GetSmbFile
+      class: org.apache.nifi.processors.smb.GetSmbFile
+    - type: ConsumeGCPubSub
+      class: org.apache.nifi.processors.gcp.pubsub.ConsumeGCPubSub
+    - type: PutMongo
+      class: org.apache.nifi.processors.mongodb.PutMongo
+    - type: RouteOnAttribute
+      class: org.apache.nifi.processors.standard.RouteOnAttribute
+    - type: StartAwsTranslateJob
+      class: org.apache.nifi.processors.aws.ml.translate.StartAwsTranslateJob
+    - type: PublishKafka_2_0
+      class: org.apache.nifi.processors.kafka.pubsub.PublishKafka_2_0
+    - type: CompareFuzzyHash
+      class: org.apache.nifi.processors.cybersecurity.CompareFuzzyHash
+    - type: FetchFTP
+      class: org.apache.nifi.processors.standard.FetchFTP
+    - type: FetchGCSObject
+      class: org.apache.nifi.processors.gcp.storage.FetchGCSObject
+    - type: GetAwsTranscribeJobStatus
+      class: org.apache.nifi.processors.aws.ml.transcribe.GetAwsTranscribeJobStatus
+    - type: ListenUDP
+      class: org.apache.nifi.processors.standard.ListenUDP
+    - type: ConsumePOP3
+      class: org.apache.nifi.processors.email.ConsumePOP3
+    - type: GetShopify
+      class: org.apache.nifi.processors.shopify.GetShopify
+    - type: DeleteAzureBlobStorage
+      class: org.apache.nifi.processors.azure.storage.DeleteAzureBlobStorage
+    - type: PublishKafkaRecord_2_0
+      class: org.apache.nifi.processors.kafka.pubsub.PublishKafkaRecord_2_0
+    - type: ScanHBase
+      class: org.apache.nifi.hbase.ScanHBase
+    - type: UpdateDatabaseTable
+      class: org.apache.nifi.processors.standard.UpdateDatabaseTable
+    - type: PutAzureBlobStorage
+      class: org.apache.nifi.processors.azure.storage.PutAzureBlobStorage
+    - type: ListAzureBlobStorage_v12
+      class: org.apache.nifi.processors.azure.storage.ListAzureBlobStorage_v12
+    - type: DeduplicateRecord
+      class: org.apache.nifi.processors.standard.DeduplicateRecord
+    - type: ListenGRPC
+      class: org.apache.nifi.processors.grpc.ListenGRPC
+    - type: LogAttribute
+      class: org.apache.nifi.processors.standard.LogAttribute
+    - type: PutCloudWatchMetric
+      class: org.apache.nifi.processors.aws.cloudwatch.PutCloudWatchMetric
+    - type: GetHBase
+      class: org.apache.nifi.hbase.GetHBase
+    - type: PutHBaseRecord
+      class: org.apache.nifi.hbase.PutHBaseRecord
+    - type: GetHDFSFileInfo
+      class: org.apache.nifi.processors.hadoop.GetHDFSFileInfo
+    - type: PutSmbFile
+      class: org.apache.nifi.processors.smb.PutSmbFile
+    - type: PutSQL
+      class: org.apache.nifi.processors.standard.PutSQL
+    - type: PublishKafkaRecord_2_6
+      class: org.apache.nifi.processors.kafka.pubsub.PublishKafkaRecord_2_6
+    - type: PutBigQueryBatch
+      class: org.apache.nifi.processors.gcp.bigquery.PutBigQueryBatch
+    - type: PutRecord
+      class: org.apache.nifi.processors.standard.PutRecord
+    - type: InvokeAWSGatewayApi
+      class: org.apache.nifi.processors.aws.wag.InvokeAWSGatewayApi
+    - type: SpringContextProcessor
+      class: org.apache.nifi.spring.SpringContextProcessor
+    - type: EvaluateXPath
+      class: org.apache.nifi.processors.standard.EvaluateXPath
+    - type: PutSolrRecord
+      class: org.apache.nifi.processors.solr.PutSolrRecord
+    - type: PutSQS
+      class: org.apache.nifi.processors.aws.sqs.PutSQS
+    - type: PutRethinkDB
+      class: org.apache.nifi.processors.rethinkdb.PutRethinkDB
+    - type: ParseSyslog5424
+      class: org.apache.nifi.processors.standard.ParseSyslog5424
+    - type: ValidateRecord
+      class: org.apache.nifi.processors.standard.ValidateRecord
+    - type: PublishGCPubSub
+      class: org.apache.nifi.processors.gcp.pubsub.PublishGCPubSub
+    - type: FetchDistributedMapCache
+      class: org.apache.nifi.processors.standard.FetchDistributedMapCache
+    - type: ListHDFS
+      class: org.apache.nifi.processors.hadoop.ListHDFS
+    - type: QueryRecord
+      class: org.apache.nifi.processors.standard.QueryRecord
+    - type: ExtractAvroMetadata
+      class: org.apache.nifi.processors.avro.ExtractAvroMetadata
+    - type: PartitionRecord
+      class: org.apache.nifi.processors.standard.PartitionRecord
+    - type: DeleteHDFS
+      class: org.apache.nifi.processors.hadoop.DeleteHDFS
+    - type: CalculateRecordStats
+      class: org.apache.nifi.processors.standard.CalculateRecordStats
+    - type: SplitAvro
+      class: org.apache.nifi.processors.avro.SplitAvro
+    - type: DeleteS3Object
+      class: org.apache.nifi.processors.aws.s3.DeleteS3Object
+    - type: GetElasticsearch
+      class: org.apache.nifi.processors.elasticsearch.GetElasticsearch
+    - type: DistributeLoad
+      class: org.apache.nifi.processors.standard.DistributeLoad
+    - type: ExtractGrok
+      class: org.apache.nifi.processors.standard.ExtractGrok
+    - type: DeleteAzureBlobStorage_v12
+      class: org.apache.nifi.processors.azure.storage.DeleteAzureBlobStorage_v12
+    - type: ConsumeKafkaRecord_2_0
+      class: org.apache.nifi.processors.kafka.pubsub.ConsumeKafkaRecord_2_0
+    - type: CompressContent
+      class: org.apache.nifi.processors.standard.CompressContent
+    - type: MoveAzureDataLakeStorage
+      class: org.apache.nifi.processors.azure.storage.MoveAzureDataLakeStorage
+    - type: ExtractRecordSchema
+      class: org.apache.nifi.processors.standard.ExtractRecordSchema
+    - type: PutSlack
+      class: org.apache.nifi.processors.slack.PutSlack
+    - type: ConsumeKafka_1_0
+      class: org.apache.nifi.processors.kafka.pubsub.ConsumeKafka_1_0
+    - type: GetFTP
+      class: org.apache.nifi.processors.standard.GetFTP
+    - type: ListenWebSocket
+      class: org.apache.nifi.processors.websocket.ListenWebSocket
+    - type: Wait
+      class: org.apache.nifi.processors.standard.Wait
+    - type: FetchSmb
+      class: org.apache.nifi.processors.smb.FetchSmb
+    - type: RemoveRecordField
+      class: org.apache.nifi.processors.standard.RemoveRecordField
+    - type: ScriptedValidateRecord
+      class: org.apache.nifi.processors.script.ScriptedValidateRecord
+    - type: ExecuteSQL
+      class: org.apache.nifi.processors.standard.ExecuteSQL
+    - type: DeleteSQS
+      class: org.apache.nifi.processors.aws.sqs.DeleteSQS
+    - type: GetMongo
+      class: org.apache.nifi.processors.mongodb.GetMongo
+    - type: EncryptContentPGP
+      class: org.apache.nifi.processors.pgp.EncryptContentPGP
+    - type: GetAzureQueueStorage
+      class: org.apache.nifi.processors.azure.storage.queue.GetAzureQueueStorage
+    - type: GetWorkdayReport
+      class: org.apache.nifi.processors.workday.GetWorkdayReport
+    - type: FetchDropbox
+      class: org.apache.nifi.processors.dropbox.FetchDropbox
+    - type: FetchGoogleDrive
+      class: org.apache.nifi.processors.gcp.drive.FetchGoogleDrive
+    - type: StartAwsTranscribeJob
+      class: org.apache.nifi.processors.aws.ml.transcribe.StartAwsTranscribeJob
+    - type: Notify
+      class: org.apache.nifi.processors.standard.Notify
+    - type: GetHDFSSequenceFile
+      class: org.apache.nifi.processors.hadoop.GetHDFSSequenceFile
+    - type: StartGcpVisionAnnotateFilesOperation
+      class: org.apache.nifi.processors.gcp.vision.StartGcpVisionAnnotateFilesOperation
+    - type: ControlRate
+      class: org.apache.nifi.processors.standard.ControlRate
+    - type: GetZendesk
+      class: org.apache.nifi.processors.zendesk.GetZendesk
+    - type: GetHDFS
+      class: org.apache.nifi.processors.hadoop.GetHDFS
+    - type: AttributesToCSV
+      class: org.apache.nifi.processors.standard.AttributesToCSV
+    - type: AttributesToJSON
+      class: org.apache.nifi.processors.standard.AttributesToJSON
+    - type: GetRethinkDB
+      class: org.apache.nifi.processors.rethinkdb.GetRethinkDB
+    - type: RetryFlowFile
+      class: org.apache.nifi.processors.standard.RetryFlowFile
+    - type: StartAwsTextractJob
+      class: org.apache.nifi.processors.aws.ml.textract.StartAwsTextractJob
+    - type: ConvertAvroToParquet
+      class: org.apache.nifi.processors.parquet.ConvertAvroToParquet
+    - type: GetDynamoDB
+      class: org.apache.nifi.processors.aws.dynamodb.GetDynamoDB
+    - type: ListDatabaseTables
+      class: org.apache.nifi.processors.standard.ListDatabaseTables
+    - type: DeleteRethinkDB
+      class: org.apache.nifi.processors.rethinkdb.DeleteRethinkDB
+    - type: EncodeContent
+      class: org.apache.nifi.processors.standard.EncodeContent
+    - type: JsonQueryElasticsearch
+      class: org.apache.nifi.processors.elasticsearch.JsonQueryElasticsearch
+    - type: ExecuteSQLRecord
+      class: org.apache.nifi.processors.standard.ExecuteSQLRecord
+    - type: QueryDNS
+      class: org.apache.nifi.processors.enrich.QueryDNS
+    - type: VerifyContentPGP
+      class: org.apache.nifi.processors.pgp.VerifyContentPGP
+    - type: GetSNMP
+      class: org.apache.nifi.snmp.processors.GetSNMP
+    - type: StartAwsPollyJob
+      class: org.apache.nifi.processors.aws.ml.polly.StartAwsPollyJob
+    - type: GetAzureEventHub
+      class: org.apache.nifi.processors.azure.eventhub.GetAzureEventHub
+    - type: GetSFTP
+      class: org.apache.nifi.processors.standard.GetSFTP
+    - type: GetTwitter
+      class: org.apache.nifi.processors.twitter.GetTwitter
+    - type: ExtractEmailAttachments
+      class: org.apache.nifi.processors.email.ExtractEmailAttachments
+    - type: GetHubSpot
+      class: org.apache.nifi.processors.hubspot.GetHubSpot
+    - type: JoinEnrichment
+      class: org.apache.nifi.processors.standard.JoinEnrichment
+    - type: PutKudu
+      class: org.apache.nifi.processors.kudu.PutKudu
+    - type: SendTrapSNMP
+      class: org.apache.nifi.snmp.processors.SendTrapSNMP
+    - type: ExecuteScript
+      class: org.apache.nifi.processors.script.ExecuteScript
+    - type: PutKinesisFirehose
+      class: org.apache.nifi.processors.aws.kinesis.firehose.PutKinesisFirehose
+    - type: SampleRecord
+      class: org.apache.nifi.processors.standard.SampleRecord
+    - type: ListS3
+      class: org.apache.nifi.processors.aws.s3.ListS3
+    - type: GetHTMLElement
+      class: org.apache.nifi.GetHTMLElement
+    - type: QueryAirtableTable
+      class: org.apache.nifi.processors.airtable.QueryAirtableTable
+    - type: GenerateRecord
+      class: org.apache.nifi.processors.standard.GenerateRecord
+    - type: ParseSyslog
+      class: org.apache.nifi.processors.standard.ParseSyslog
+    - type: PutTCP
+      class: org.apache.nifi.processors.standard.PutTCP
+    - type: LogMessage
+      class: org.apache.nifi.processors.standard.LogMessage
+    - type: ListenSMTP
+      class: org.apache.nifi.processors.email.ListenSMTP
+    - type: SplitContent
+      class: org.apache.nifi.processors.standard.SplitContent
+    - type: RouteOnContent
+      class: org.apache.nifi.processors.standard.RouteOnContent
+    - type: JoltTransformRecord
+      class: org.apache.nifi.processors.jolt.record.JoltTransformRecord
+    - type: PutJMS
+      class: org.apache.nifi.processors.standard.PutJMS
+    - type: ListAzureDataLakeStorage
+      class: org.apache.nifi.processors.azure.storage.ListAzureDataLakeStorage
+    - type: QuerySplunkIndexingStatus
+      class: org.apache.nifi.processors.splunk.QuerySplunkIndexingStatus
+    - type: PutSolrContentStream
+      class: org.apache.nifi.processors.solr.PutSolrContentStream
+    - type: ScriptedFilterRecord
+      class: org.apache.nifi.processors.script.ScriptedFilterRecord
+    - type: PutSplunk
+      class: org.apache.nifi.processors.splunk.PutSplunk
+    - type: PutHBaseJSON
+      class: org.apache.nifi.hbase.PutHBaseJSON
+    - type: ListenRELP
+      class: org.apache.nifi.processors.standard.ListenRELP
+    - type: SetSNMP
+      class: org.apache.nifi.snmp.processors.SetSNMP
+    - type: ListGoogleDrive
+      class: org.apache.nifi.processors.gcp.drive.ListGoogleDrive
+    - type: GetAzureQueueStorage_v12
+      class: org.apache.nifi.processors.azure.storage.queue.GetAzureQueueStorage_v12
+    - type: ConsumeKafkaRecord_2_6
+      class: org.apache.nifi.processors.kafka.pubsub.ConsumeKafkaRecord_2_6
+    - type: PutUDP
+      class: org.apache.nifi.processors.standard.PutUDP
+    - type: GetJMSQueue
+      class: org.apache.nifi.processors.standard.GetJMSQueue
+    - type: HashContent
+      class: org.apache.nifi.processors.standard.HashContent
+    - type: PutParquet
+      class: org.apache.nifi.processors.parquet.PutParquet
+    - type: ValidateJson
+      class: org.apache.nifi.processors.standard.ValidateJson
+    - type: EnforceOrder
+      class: org.apache.nifi.processors.standard.EnforceOrder
+    - type: ListBoxFile
+      class: org.apache.nifi.processors.box.ListBoxFile
+    - type: UpdateAttribute
+      class: org.apache.nifi.processors.attributes.UpdateAttribute
+    - type: LookupAttribute
+      class: org.apache.nifi.processors.standard.LookupAttribute
+    - type: ExecuteStateless
+      class: org.apache.nifi.processors.stateless.ExecuteStateless
+    - type: RouteText
+      class: org.apache.nifi.processors.standard.RouteText
+    - type: VerifyContentMAC
+      class: org.apache.nifi.processors.cipher.VerifyContentMAC
+    - type: GetHDFSEvents
+      class: org.apache.nifi.processors.hadoop.inotify.GetHDFSEvents
+    - type: PutSyslog
+      class: org.apache.nifi.processors.standard.PutSyslog
+    - type: PutWebSocket
+      class: org.apache.nifi.processors.websocket.PutWebSocket
+    - type: UpdateCounter
+      class: org.apache.nifi.processors.standard.UpdateCounter
+    - type: ConsumeKafka_2_6
+      class: org.apache.nifi.processors.kafka.pubsub.ConsumeKafka_2_6
+    - type: FetchBoxFile
+      class: org.apache.nifi.processors.box.FetchBoxFile
+    - type: PutElasticsearchRecord
+      class: org.apache.nifi.processors.elasticsearch.PutElasticsearchRecord
+    - type: ConsumeKinesisStream
+      class: org.apache.nifi.processors.aws.kinesis.stream.ConsumeKinesisStream
+    - type: IdentifyMimeType
+      class: org.apache.nifi.processors.standard.IdentifyMimeType
+    - type: FetchSFTP
+      class: org.apache.nifi.processors.standard.FetchSFTP
+    - type: SplitText
+      class: org.apache.nifi.processors.standard.SplitText
+    - type: ListSmb
+      class: org.apache.nifi.processors.smb.ListSmb
+    - type: PublishKafka_2_6
+      class: org.apache.nifi.processors.kafka.pubsub.PublishKafka_2_6
+    - type: ExtractText
+      class: org.apache.nifi.processors.standard.ExtractText
+    - type: ScriptedPartitionRecord
+      class: org.apache.nifi.processors.script.ScriptedPartitionRecord
+    - type: ParseNetflowv5
+      class: org.apache.nifi.processors.network.ParseNetflowv5
+    - type: PutSalesforceObject
+      class: org.apache.nifi.processors.salesforce.PutSalesforceObject
+    - type: ListSFTP
+      class: org.apache.nifi.processors.standard.ListSFTP
+    - type: PutBigQuery
+      class: org.apache.nifi.processors.gcp.bigquery.PutBigQuery
+    - type: SplitJson
+      class: org.apache.nifi.processors.standard.SplitJson
+    - type: PublishJMS
+      class: org.apache.nifi.jms.processors.PublishJMS
+    - type: PutDatabaseRecord
+      class: org.apache.nifi.processors.standard.PutDatabaseRecord
+    - type: PublishKafka_1_0
+      class: org.apache.nifi.processors.kafka.pubsub.PublishKafka_1_0
+    - type: SegmentContent
+      class: org.apache.nifi.processors.standard.SegmentContent
+    - type: ListenTCP
+      class: org.apache.nifi.processors.standard.ListenTCP
+    - type: PutDropbox
+      class: org.apache.nifi.processors.dropbox.PutDropbox
+    - type: GetGcpVisionAnnotateImagesOperationStatus
+      class: org.apache.nifi.processors.gcp.vision.GetGcpVisionAnnotateImagesOperationStatus
+    - type: HandleHttpResponse
+      class: org.apache.nifi.processors.standard.HandleHttpResponse
+    - type: ConvertAvroToJSON
+      class: org.apache.nifi.processors.avro.ConvertAvroToJSON
+    - type: CryptographicHashContent
+      class: org.apache.nifi.processors.standard.CryptographicHashContent
+    - type: PutElasticsearchHttpRecord
+      class: org.apache.nifi.processors.elasticsearch.PutElasticsearchHttpRecord
+    - type: PutKinesisStream
+      class: org.apache.nifi.processors.aws.kinesis.stream.PutKinesisStream
+    - type: AttributeRollingWindow
+      class: org.apache.nifi.processors.stateful.analysis.AttributeRollingWindow
+    - type: SignContentPGP
+      class: org.apache.nifi.processors.pgp.SignContentPGP
+    - type: ListenTrapSNMP
+      class: org.apache.nifi.snmp.processors.ListenTrapSNMP
+    - type: ScanContent
+      class: org.apache.nifi.processors.standard.ScanContent
+    - type: DeleteMongo
+      class: org.apache.nifi.processors.mongodb.DeleteMongo
+    - type: DeleteHBaseRow
+      class: org.apache.nifi.hbase.DeleteHBaseRow
+    - type: ModifyCompression
+      class: org.apache.nifi.processors.compress.ModifyCompression
+    - type: ListAzureBlobStorage
+      class: org.apache.nifi.processors.azure.storage.ListAzureBlobStorage
+    - type: InvokeGRPC
+      class: org.apache.nifi.processors.grpc.InvokeGRPC
+    - type: PutS3Object
+      class: org.apache.nifi.processors.aws.s3.PutS3Object
+    - type: ConsumeTwitter
+      class: org.apache.nifi.processors.twitter.ConsumeTwitter
+    - type: GetAwsTextractJobStatus
+      class: org.apache.nifi.processors.aws.ml.textract.GetAwsTextractJobStatus
+    - type: PutBigQueryStreaming
+      class: org.apache.nifi.processors.gcp.bigquery.PutBigQueryStreaming
+    - type: ListenUDPRecord
+      class: org.apache.nifi.processors.standard.ListenUDPRecord
+    - type: PublishMQTT
+      class: org.apache.nifi.processors.mqtt.PublishMQTT
+    - type: ConsumeKafkaRecord_1_0
+      class: org.apache.nifi.processors.kafka.pubsub.ConsumeKafkaRecord_1_0
+    - type: ExecuteStreamCommand
+      class: org.apache.nifi.processors.standard.ExecuteStreamCommand
+    - type: ValidateXml
+      class: org.apache.nifi.processors.standard.ValidateXml
     - type: ConvertRecord
-      classfile: org.apache.nifi.processors.standard.ConvertRecord
+      class: org.apache.nifi.processors.standard.ConvertRecord
+    - type: ValidateCsv
+      class: org.apache.nifi.processors.standard.ValidateCsv
+    - type: PutSFTP
+      class: org.apache.nifi.processors.standard.PutSFTP
+    - type: PutDynamoDBRecord
+      class: org.apache.nifi.processors.aws.dynamodb.PutDynamoDBRecord
+    - type: TailFile
+      class: org.apache.nifi.processors.standard.TailFile
+    - type: FetchFile
+      class: org.apache.nifi.processors.standard.FetchFile
+    - type: ConsumeAzureEventHub
+      class: org.apache.nifi.processors.azure.eventhub.ConsumeAzureEventHub
+    - type: ConsumeGCPubSubLite
+      class: org.apache.nifi.processors.gcp.pubsub.lite.ConsumeGCPubSubLite
+    - type: ConvertJSONToSQL
+      class: org.apache.nifi.processors.standard.ConvertJSONToSQL
+    - type: DecryptContentPGP
+      class: org.apache.nifi.processors.pgp.DecryptContentPGP
+    - type: FuzzyHashContent
+      class: org.apache.nifi.processors.cybersecurity.FuzzyHashContent
+    - type: ParseEvtx
+      class: org.apache.nifi.processors.evtx.ParseEvtx
+    - type: ReplaceTextWithMapping
+      class: org.apache.nifi.processors.standard.ReplaceTextWithMapping
+    - type: ModifyBytes
+      class: org.apache.nifi.processors.standard.ModifyBytes
+    - type: QuerySalesforceObject
+      class: org.apache.nifi.processors.salesforce.QuerySalesforceObject
+    - type: UnpackContent
+      class: org.apache.nifi.processors.standard.UnpackContent
+    - type: FlattenJson
+      class: org.apache.nifi.processors.standard.FlattenJson
+    - type: PutGridFS
+      class: org.apache.nifi.processors.mongodb.gridfs.PutGridFS
+    - type: YandexTranslate
+      class: org.apache.nifi.processors.yandex.YandexTranslate
+    - type: GetAwsPollyJobStatus
+      class: org.apache.nifi.processors.aws.ml.polly.GetAwsPollyJobStatus
+    - type: HashAttribute
+      class: org.apache.nifi.processors.standard.HashAttribute
+    - type: GetSolr
+      class: org.apache.nifi.processors.solr.GetSolr
+    - type: PutCassandraQL
+      class: org.apache.nifi.processors.cassandra.PutCassandraQL
+    - type: StartGcpVisionAnnotateImagesOperation
+      class: org.apache.nifi.processors.gcp.vision.StartGcpVisionAnnotateImagesOperation
+    - type: FetchHDFS
+      class: org.apache.nifi.processors.hadoop.FetchHDFS
+    - type: JSLTTransformJSON
+      class: org.apache.nifi.processors.jslt.JSLTTransformJSON
+    - type: QueryDatabaseTableRecord
+      class: org.apache.nifi.processors.standard.QueryDatabaseTableRecord
+    - type: CryptographicHashAttribute
+      class: org.apache.nifi.processors.standard.CryptographicHashAttribute
+    - type: DecryptContent
+      class: org.apache.nifi.processors.cipher.DecryptContent
+    - type: ForkRecord
+      class: org.apache.nifi.processors.standard.ForkRecord
+    - type: MoveHDFS
+      class: org.apache.nifi.processors.hadoop.MoveHDFS
+    - type: SplitRecord
+      class: org.apache.nifi.processors.standard.SplitRecord
+    - type: ExtractHL7Attributes
+      class: org.apache.nifi.processors.hl7.ExtractHL7Attributes
+    - type: DeleteGridFS
+      class: org.apache.nifi.processors.mongodb.gridfs.DeleteGridFS
+    - type: ConnectWebSocket
+      class: org.apache.nifi.processors.websocket.ConnectWebSocket
+    - type: PaginatedJsonQueryElasticsearch
+      class: org.apache.nifi.processors.elasticsearch.PaginatedJsonQueryElasticsearch
+    - type: QuerySolr
+      class: org.apache.nifi.processors.solr.QuerySolr
+    - type: PutFTP
+      class: org.apache.nifi.processors.standard.PutFTP
+    - type: PutGCSObject
+      class: org.apache.nifi.processors.gcp.storage.PutGCSObject
+    - type: PostHTTP
+      class: org.apache.nifi.processors.standard.PostHTTP
+    - type: DeleteAzureDataLakeStorage
+      class: org.apache.nifi.processors.azure.storage.DeleteAzureDataLakeStorage
+    - type: GetTCP
+      class: org.apache.nifi.processors.gettcp.GetTCP
+    - type: PublishAMQP
+      class: org.apache.nifi.amqp.processors.PublishAMQP
+    - type: PutFile
+      class: org.apache.nifi.processors.standard.PutFile
+    - type: FetchGridFS
+      class: org.apache.nifi.processors.mongodb.gridfs.FetchGridFS
+    - type: ListDropbox
+      class: org.apache.nifi.processors.dropbox.ListDropbox
+    - type: PutHDFS
+      class: org.apache.nifi.processors.hadoop.PutHDFS
+    - type: CountText
+      class: org.apache.nifi.processors.standard.CountText
+    - type: MergeRecord
+      class: org.apache.nifi.processors.standard.MergeRecord
+    - type: PutEmail
+      class: org.apache.nifi.processors.standard.PutEmail
+    - type: PutLambda
+      class: org.apache.nifi.processors.aws.lambda.PutLambda
+    - type: PutSNS
+      class: org.apache.nifi.processors.aws.sns.PutSNS
+    - type: EvaluateXQuery
+      class: org.apache.nifi.processors.standard.EvaluateXQuery
+    - type: GetCouchbaseKey
+      class: org.apache.nifi.processors.couchbase.GetCouchbaseKey
+    - type: GeohashRecord
+      class: org.apache.nifi.processors.geohash.GeohashRecord
+    - type: PutHTMLElement
+      class: org.apache.nifi.PutHTMLElement
+    - type: PutElasticsearchHttp
+      class: org.apache.nifi.processors.elasticsearch.PutElasticsearchHttp
+    - type: MergeContent
+      class: org.apache.nifi.processors.standard.MergeContent
+    - type: PutAzureDataLakeStorage
+      class: org.apache.nifi.processors.azure.storage.PutAzureDataLakeStorage
+    - type: PutDynamoDB
+      class: org.apache.nifi.processors.aws.dynamodb.PutDynamoDB
+    - type: ListenSyslog
+      class: org.apache.nifi.processors.standard.ListenSyslog
+    - type: UpdateRecord
+      class: org.apache.nifi.processors.standard.UpdateRecord
+    - type: ListFile
+      class: org.apache.nifi.processors.standard.ListFile
+    - type: ModifyHTMLElement
+      class: org.apache.nifi.ModifyHTMLElement
+    - type: RouteHL7
+      class: org.apache.nifi.processors.hl7.RouteHL7
+    - type: FetchS3Object
+      class: org.apache.nifi.processors.aws.s3.FetchS3Object
+    - type: PutAzureQueueStorage
+      class: org.apache.nifi.processors.azure.storage.queue.PutAzureQueueStorage
+    - type: PostSlack
+      class: org.apache.nifi.processors.slack.PostSlack
+    - type: ConsumeKafka_2_0
+      class: org.apache.nifi.processors.kafka.pubsub.ConsumeKafka_2_0
+    - type: DecryptContentCompatibility
+      class: org.apache.nifi.processors.cipher.DecryptContentCompatibility
+    - type: FetchAzureDataLakeStorage
+      class: org.apache.nifi.processors.azure.storage.FetchAzureDataLakeStorage
+    - type: EvaluateJsonPath
+      class: org.apache.nifi.processors.standard.EvaluateJsonPath
+    - type: ExecuteProcess
+      class: org.apache.nifi.processors.standard.ExecuteProcess
+    - type: PutAzureQueueStorage_v12
+      class: org.apache.nifi.processors.azure.storage.queue.PutAzureQueueStorage_v12
+    - type: JoltTransformJSON
+      class: org.apache.nifi.processors.standard.JoltTransformJSON
+    - type: PutGoogleDrive
+      class: org.apache.nifi.processors.gcp.drive.PutGoogleDrive
+    - type: ConvertExcelToCSVProcessor
+      class: org.apache.nifi.processors.poi.ConvertExcelToCSVProcessor
+
 
 
