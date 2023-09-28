@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Service
@@ -32,6 +33,7 @@ public class ChatGPTService {
     @Autowired
     ChatGPTClient chatGPTClient;
 
+
     private String postMessageToGPT(String message) {
         JSONObject obj =new JSONObject();
         obj.put("message", message);
@@ -44,6 +46,7 @@ public class ChatGPTService {
                 .url(baseurl).build();
         String jsonString = null;
         try {
+
             Response postReponse = chatGPTClient.getClient().newCall(request).execute();
             jsonString = postReponse.body().string();
         } catch (IOException e) {

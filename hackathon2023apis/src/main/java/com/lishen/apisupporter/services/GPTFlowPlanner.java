@@ -36,7 +36,7 @@ public class GPTFlowPlanner {
 
     public String createFlowAccordingToChatGPTsDesign(String inputMessage) {
         String gptDesign = chatGPTService.AskGPTFlowDesign(inputMessage);
-
+        log.info(gptDesign);
 
         try {
             JSONArray jsonArray = JSONArray.parseArray(gptDesign);
